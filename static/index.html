@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeClarity Documentation Browser</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🚀 CodeClarity Documentation Browser</h1>
+            <p>Browse and explore your automated documentation and release notes</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="nav-buttons">
+            <button id="homeBtn" onclick="showProjects()">🏠 Projects</button>
+            <button id="backBtn" onclick="goBack()" style="display:none;" class="secondary">← Back</button>
+        </div>
+
+        <div class="breadcrumb" id="breadcrumb" style="display:none;"></div>
+
+        <div id="content">
+            <div class="loading">Loading projects...</div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
