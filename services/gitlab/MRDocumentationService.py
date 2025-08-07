@@ -44,7 +44,7 @@ async def find_mr_by_commit_sha(project_id: int, commit_sha: str) -> Optional[in
     Find MR IID using commit SHA via GitLab API
     Most reliable method!
     """
-    url = f"https://gitlab.kazan.myworldline.com/api/v4/projects/{project_id}/repository/commits/{commit_sha}/merge_requests"
+    url = f"https://gitlab.com/api/v4/projects/{project_id}/repository/commits/{commit_sha}/merge_requests"
     headers = {"PRIVATE-TOKEN": GITLAB_TOKEN}
     
     try:
@@ -65,7 +65,7 @@ async def enrich_mr_data_from_api(mr_request: MRDocumentationRequest, mr_iid) ->
     """
     try:
         # Fetch MR details from GitLab API
-        url = f"https://gitlab.kazan.myworldline.com/api/v4/projects/{mr_request.project_id}/merge_requests/{mr_iid}"
+        url = f"https://gitlab.com/api/v4/projects/{mr_request.project_id}/merge_requests/{mr_iid}"
         headers = {"PRIVATE-TOKEN": GITLAB_TOKEN}
         
         response = requests.get(url, headers=headers)
@@ -355,7 +355,7 @@ async def get_list_of_commits(project_id, mr_iid):
     """
     Fetch commits from GitLab API and return validated CommitResponse object
     """
-    url = f"https://gitlab.kazan.myworldline.com/api/v4/projects/{project_id}/merge_requests/{mr_iid}/commits"
+    url = f"https://gitlab.com/api/v4/projects/{project_id}/merge_requests/{mr_iid}/commits"
     headers = {
         "PRIVATE-TOKEN": GITLAB_TOKEN
     }
@@ -401,7 +401,7 @@ async def get_commit_diff(project_id: str, commit_sha: str) -> dict:
     headers = {
         "PRIVATE-TOKEN": GITLAB_TOKEN
     }
-    url = f"https://gitlab.kazan.myworldline.com/api/v4/projects/{project_id}/repository/commits/{commit_sha}/diff"
+    url = f"https://gitlab.com/api/v4/projects/{project_id}/repository/commits/{commit_sha}/diff"
 
     try:
         response = requests.get(url, headers=headers)

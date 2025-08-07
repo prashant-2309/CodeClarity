@@ -49,7 +49,7 @@ async def find_release_by_tag(release_note_request: ReleaseNoteRequest) -> Relea
     Find a release by tag.
     This is a placeholder function and should be implemented to query the GitLab API.
     """
-    url = f"https://gitlab.kazan.myworldline.com/api/v4/projects/{release_note_request.project_id}/releases/{release_note_request.release_tag}"
+    url = f"https://gitlab.com/api/v4/projects/{release_note_request.project_id}/releases/{release_note_request.release_tag}"
     headers = {"PRIVATE-TOKEN": GITLAB_TOKEN}
 
     try:
@@ -139,7 +139,7 @@ async def get_all_mrs_to_main_for_first_release(project_id: int, limit: int = 50
     """
     Get recent MRs to main for first release - only merge commit SHA.
     """
-    url = f"https://gitlab.kazan.myworldline.com/api/v4/projects/{project_id}/merge_requests"
+    url = f"https://gitlab.com/api/v4/projects/{project_id}/merge_requests"
     params = {
         "state": "merged",
         "target_branch": "main",
@@ -179,7 +179,7 @@ async def get_mrs_between_tags_by_time(project_id: int, from_tag: str, to_tag: s
         headers = {"PRIVATE-TOKEN": GITLAB_TOKEN}
         
         # Get tag timestamps
-        tags_url = f"https://gitlab.kazan.myworldline.com/api/v4/projects/{project_id}/repository/tags"
+        tags_url = f"https://gitlab.com/api/v4/projects/{project_id}/repository/tags"
         tags_response = requests.get(tags_url, headers=headers)
         
         if tags_response.status_code != 200:
@@ -198,7 +198,7 @@ async def get_mrs_between_tags_by_time(project_id: int, from_tag: str, to_tag: s
         print(f"Looking for MRs merged between {from_time} and {to_time}")
         
         # Get all merged MRs
-        mrs_url = f"https://gitlab.kazan.myworldline.com/api/v4/projects/{project_id}/merge_requests"
+        mrs_url = f"https://gitlab.com/api/v4/projects/{project_id}/merge_requests"
         mrs_params = {
             "state": "merged",
             "target_branch": "main",
