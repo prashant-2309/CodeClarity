@@ -91,7 +91,7 @@ class CommitResponse(BaseModel):
     #                     "committed_date": "2025-07-13T07:31:24.000+00:00",
     #                     "trailers": {},
     #                     "extended_trailers": {},
-    #                     "web_url": "https://gitlab.com/tusharsoni142001/demo-project/-/commit/5cf4623466a85a9308fa47c3f141714235177f3d"
+    #                     "web_url": "https://gitlab.kazan.myworldline.com/tusharsoni142001/demo-project/-/commit/5cf4623466a85a9308fa47c3f141714235177f3d"
     #                 }
     #             ],
     #             "is_single_commit": True,
